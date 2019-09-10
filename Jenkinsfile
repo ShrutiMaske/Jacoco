@@ -31,7 +31,7 @@ node{
         stage('Checkout') {
                 
                     git(
-                        url: 'https://github.com/ShrutiMaske/Jacoco.git',
+                        url: 'https://github.com/jacoco/jacoco.git',
                         branch: "master"
                     )
                 
@@ -44,7 +44,7 @@ node{
                 stage('Build') {
                    withEnv(["GIT_COMMIT=${gitCommit}",
                          'GIT_BRANCH=master',
-                         "GIT_REPO=https://github.com/ShrutiMaske/Jacoco"]) {
+                         "GIT_REPO=https://github.com/jacoco/jacoco"]) {
                     try {
                          sh 'mvn package' 
                            // junit 'target/surefire-reports/**/*.xml'
